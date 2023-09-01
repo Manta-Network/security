@@ -1,0 +1,42 @@
+{
+  "name": "@earn/contracts",
+  "version": "0.0.1",
+  "packageManager": "yarn@3.5.0",
+  "scripts": {
+    "lint:sol": "solhint --config ./.solhint.json  \"contracts/**/*.sol\"",
+    "lint:solfix": "solhint --config ./.solhint.json  \"contracts/**/*.sol\" --fix",
+    "lint:ts": "eslint .",
+    "lint": "yarn lint:sol; yarn lint:ts",
+    "build": "yarn lint:sol && hardhat compile",
+    "deploy": "DEPLOY_EARN=1 hardhat test test/deploy.ts",
+    "upgrade": "UPGRADE_EARN=1 hardhat test test/upgrade.ts",
+    "verify": "hardhat verify",
+    "test": "hardhat compile && hardhat test"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.2",
+    "@openzeppelin/contracts-upgradeable": "^4.9.3",
+    "@typechain/ethers-v5": "^11.1.1",
+    "ethers": "5.7.2"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.1",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
+    "@openzeppelin/hardhat-upgrades": "^1.21.0",
+    "@semaphore-protocol/contracts": "^3.10.1",
+    "@typechain/hardhat": "^6.1.4",
+    "@types/chai": "^4.3.4",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^18.11.9",
+    "chai": "^4.3.7",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.45.0",
+    "ethereum-waffle": "^3.4.4",
+    "hardhat": "^2.12.5",
+    "hardhat-contract-sizer": "^2.6.1",
+    "solhint": "^3.4.1",
+    "ts-node": "^10.9.1",
+    "typechain": "^8.1.1",
+    "typescript": "^4.9.3"
+  }
+}
